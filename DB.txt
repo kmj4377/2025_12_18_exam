@@ -1,0 +1,46 @@
+DROP DATABASE IF EXISTS exam;
+CREATE DATABASE exam;
+USE exam;
+
+CREATE TABLE article (
+	id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT
+	, regDate DATETIME NOT NULL
+	, updateDate DATETIME NOT NULL
+	, memberId INT NOT NULL
+	, title VARCHAR(50)
+	, content VARCHAR(100)
+	, weiterName VARCHAR(100)
+);
+
+CREATE TABLE `member`(
+	id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT
+	, regDate DATETIME NOT NULL
+	, updateDate DATETIME NOT NULL
+	, loginId VARCHAR(50)
+	, loginPw VARCHAR(100)
+	, `name` VARCHAR(20)
+);
+
+
+INSERT INTO article (regDate, updateDate, memberId, title, content, weiterName)
+	VALUES
+		(NOW(), NOW(), 1, '제목1', '내용1', 'test1')
+		, (NOW(), NOW(), 1, '제목2', '내용2', 'test1')
+		, (NOW(), NOW(), 1, '제목3', '내용3', 'test1')
+		, (NOW(), NOW(), 2, '제목4', '내용4', 'test1')
+		, (NOW(), NOW(), 2, '제목5', '내용5', 'test1')
+		, (NOW(), NOW(), 2, '제목6', '내용6', 'test1')
+		, (NOW(), NOW(), 3, '제목7', '내용7', 'test1');
+		
+INSERT INTO `member` (regDate, updateDate, loginId, loginPw, `name`)
+	VALUES
+		(NOW(), NOW(), 'test1', 'test1', 'test1')
+		, (NOW(), NOW(), 'test2', 'test2', 'test2')
+		, (NOW(), NOW(), 'test3', 'test3', 'test3');
+		
+		
+SELECT *
+	FROM article;
+	
+SELECT *
+	FROM `member`;
